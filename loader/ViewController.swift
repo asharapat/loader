@@ -10,10 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+
 class ViewController: UITableViewController{
-    
-    
-    
     
     var titles:[String] = [] {
         didSet {
@@ -69,13 +68,17 @@ class ViewController: UITableViewController{
     }
     
     
+    
     @IBAction func buttonPressed(_ sender: AnyObject) {
         if let cell = sender.superview??.superview as? ViewControllerTableViewCell{
             let indexPath = tableView.indexPath(for: cell)
             //print(self.titles[(indexPath?.row)!])
             let url = self.urls[(indexPath?.row)!]
-            let urlSring = "file:///Users/Azamat/Desktop/images/onel1.mp3"
+            let name = "\(self.titles[(indexPath?.row)!]).mp3"
+            var name2 = name.replacingOccurrences(of: " ", with: "")
+            let urlSring = "file:///Users/Azamat/Desktop/images/\(name2)"
             let filePathURl = URL(string: urlSring)
+            //print(name2)
             Alamofire.download(url, method: .get, to: { (url, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
                     return (filePathURl!, [.createIntermediateDirectories])})
                         .downloadProgress{ progress in
@@ -85,35 +88,6 @@ class ViewController: UITableViewController{
         }
         
     }
-
-    
-    
-    
-    
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let url = urls[indexPath.row]
-//        let urlSring = "file:///Users/Azamat/Desktop/images/onel1.mp3"
-//        let filePathURl = URL(string: urlSring)
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
-//        
-//        Alamofire.download(url, method: .get, to: { (url, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
-//            return (filePathURl!, [.createIntermediateDirectories])
-//        })
-//            .downloadProgress{ progress in
-//                print("Download Progress: \(progress.fractionCompleted)")
-//                cell.progressBar.progress = Float(progress.fractionCompleted)
-//            }
-////            .responseData { response in
-////                if let data = response.result.value {
-////                    self.imageView.image = UIImage(data: data)
-////                }
-////                }
-//    }
-
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
