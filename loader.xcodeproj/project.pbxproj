@@ -16,6 +16,7 @@
 		03664C4C1F45C80D00173153 /* silva.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03664C491F45C80D00173153 /* silva.jpg */; };
 		03664C4D1F45C80D00173153 /* romka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03664C4A1F45C80D00173153 /* romka.jpg */; };
 		03664C4F1F45CBA400173153 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03664C4E1F45CBA400173153 /* ViewControllerTableViewCell.swift */; };
+		03C5F4601F4E9C9200B7F9EF /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5F45F1F4E9C9200B7F9EF /* DownloadManager.swift */; };
 		B81AD7591A914F62266BCE14 /* Pods_loader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1812E5EEB5E5DCA212E6AD /* Pods_loader.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		03664C491F45C80D00173153 /* silva.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silva.jpg; sourceTree = "<group>"; };
 		03664C4A1F45C80D00173153 /* romka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = romka.jpg; sourceTree = "<group>"; };
 		03664C4E1F45CBA400173153 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		03C5F45F1F4E9C9200B7F9EF /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = SOURCE_ROOT; };
 		11B9A9E9581B202973F54748 /* Pods-loader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loader.release.xcconfig"; path = "Pods/Target Support Files/Pods-loader/Pods-loader.release.xcconfig"; sourceTree = "<group>"; };
 		3D1812E5EEB5E5DCA212E6AD /* Pods_loader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1570E002DCB463150C60D3 /* Pods-loader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-loader/Pods-loader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				03664C381F45ADDC00173153 /* ViewController.swift */,
 				03664C3A1F45ADDC00173153 /* Main.storyboard */,
 				03664C4E1F45CBA400173153 /* ViewControllerTableViewCell.swift */,
+				03C5F45F1F4E9C9200B7F9EF /* DownloadManager.swift */,
 				03664C3D1F45ADDC00173153 /* Assets.xcassets */,
 				03664C3F1F45ADDC00173153 /* LaunchScreen.storyboard */,
 				03664C481F45C80D00173153 /* maldini.jpg */,
@@ -229,6 +232,7 @@
 				03664C391F45ADDC00173153 /* ViewController.swift in Sources */,
 				03664C371F45ADDC00173153 /* AppDelegate.swift in Sources */,
 				03664C4F1F45CBA400173153 /* ViewControllerTableViewCell.swift in Sources */,
+				03C5F4601F4E9C9200B7F9EF /* DownloadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +396,7 @@
 				03664C471F45ADDC00173153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

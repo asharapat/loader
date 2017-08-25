@@ -53,7 +53,7 @@
                                                 <action selector="buttonPressed:" destination="0Xu-bh-bRS" eventType="touchUpInside" id="Hou-mR-S6n"/>
                                             </connections>
                                         </button>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cNQ-Am-ppm">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="cNQ-Am-ppm">
                                             <rect key="frame" x="33" y="103" width="284" height="2"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="cNQ-Am-ppm" secondAttribute="height" multiplier="142:1" id="Zqz-Ca-7S6"/>

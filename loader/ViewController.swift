@@ -19,12 +19,15 @@ class ViewController: UITableViewController{
             tableView.reloadData()
         }
     }
+    
     var artists: [String] = []{
         didSet {
             tableView.reloadData()
         }
     }
+    
     var urls: [URL] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +37,6 @@ class ViewController: UITableViewController{
             if let value = response.result.value{
                 let json = JSON(value)
                 let number = json["tracks"].count
-                
-                
                 for i in 0..<number{
                       //print(json["tracks"][i]["title"].stringValue)
                     self.titles.append(json["tracks"][i]["title"].stringValue)
@@ -43,10 +44,9 @@ class ViewController: UITableViewController{
                     self.urls.append(json["tracks"][i]["url"].url!)
                     
                 }
-                for i in 0..<number{
-                    print(self.urls[i])
-                }
-                
+//                for i in 0..<number{
+//                    print(self.urls[i])
+//                }
             }
             
         }
@@ -63,28 +63,15 @@ class ViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.pesnya.text = titles[indexPath.row]
         cell.pevets.text = artists[indexPath.row]
-        
+        cell.url = urls[indexPath.row]
         return (cell)
     }
     
     
     
     @IBAction func buttonPressed(_ sender: AnyObject) {
-        if let cell = sender.superview??.superview as? ViewControllerTableViewCell{
-            let indexPath = tableView.indexPath(for: cell)
-            //print(self.titles[(indexPath?.row)!])
-            let url = self.urls[(indexPath?.row)!]
-            let name = "\(self.titles[(indexPath?.row)!]).mp3"
-            var name2 = name.replacingOccurrences(of: " ", with: "")
-            let urlSring = "file:///Users/Azamat/Desktop/images/\(name2)"
-            let filePathURl = URL(string: urlSring)
-            //print(name2)
-            Alamofire.download(url, method: .get, to: { (url, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
-                    return (filePathURl!, [.createIntermediateDirectories])})
-                        .downloadProgress{ progress in
-                        print("Download Progress: \(progress.fractionCompleted)")
-                        cell.progressBar.progress = Float(progress.fractionCompleted)
-            }
+        if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
+            DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
         }
         
     }

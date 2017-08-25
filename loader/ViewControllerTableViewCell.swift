@@ -17,17 +17,25 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressBar: UIProgressView!
     
-    
-//    @IBAction func buttonPressed(_ sender: Any) {
-//        
-//    }
-    
-    
+    var url: URL?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         progressBar.progress = 0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDownloadProgress(notification:)), name: DownloadManager.Notifications.downloadProgress, object: nil)
+    }
+    
+    func onDownloadProgress(notification: Notification) {
+        guard let url = notification.userInfo?["url"] as? URL, let progress = notification.userInfo?["progress"] as? Float, let currentUrl = self.url, currentUrl.absoluteString == url.absoluteString else { return }
+//        print(progress)
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(progress, animated: true)
+        }
+//        if url == currentUrl {
+//            progressBar.progress = 
+//        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
