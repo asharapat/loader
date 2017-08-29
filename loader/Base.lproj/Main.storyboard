@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,70 +27,52 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqv-CG-fig">
-                                            <rect key="frame" x="33" y="15" width="188" height="30"/>
+                                            <rect key="frame" x="33" y="15" width="34" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="Q2l-8d-k1F"/>
+                                                <constraint firstAttribute="height" constant="30" id="ZFX-v3-zuY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-uF-FO3">
-                                            <rect key="frame" x="33" y="53" width="188" height="36"/>
+                                            <rect key="frame" x="33" y="53" width="34" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eum-qt-4Zt">
-                                            <rect key="frame" x="248" y="32" width="69" height="43"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="69" id="9Ib-IU-lWn"/>
-                                            </constraints>
-                                            <state key="normal" title="Удалить">
-                                                <color key="titleColor" red="1" green="0.15005792579999999" blue="0.1681275455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="0Xu-bh-bRS" eventType="touchUpInside" id="Hou-mR-S6n"/>
-                                            </connections>
-                                        </button>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="cNQ-Am-ppm">
-                                            <rect key="frame" x="33" y="103" width="284" height="2"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="cNQ-Am-ppm" secondAttribute="height" multiplier="142:1" id="Zqz-Ca-7S6"/>
-                                            </constraints>
+                                            <rect key="frame" x="33" y="90" width="284" height="2"/>
                                         </progressView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73T-rw-CaV">
-                                            <rect key="frame" x="248" y="31" width="69" height="43"/>
+                                            <rect key="frame" x="248" y="31" width="69" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="69" id="FQS-8A-mdI"/>
+                                            </constraints>
                                             <state key="normal" title="Скачать">
                                                 <color key="titleColor" red="1" green="0.15005792579999999" blue="0.1681275455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <state key="selected" title="Удалить"/>
+                                            <state key="highlighted" title="Удалить"/>
                                             <connections>
                                                 <action selector="buttonPressed:" destination="0Xu-bh-bRS" eventType="touchUpInside" id="car-0F-Zvr"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Wbm-uF-FO3" firstAttribute="top" secondItem="uqv-CG-fig" secondAttribute="bottom" constant="8" symbolic="YES" id="6Tm-S6-Ti2"/>
-                                        <constraint firstItem="cNQ-Am-ppm" firstAttribute="top" secondItem="73T-rw-CaV" secondAttribute="bottom" constant="29" id="6XO-Cr-mTU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="eum-qt-4Zt" secondAttribute="bottom" constant="30.5" id="E8G-5w-2S5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Wbm-uF-FO3" secondAttribute="bottom" constant="16.5" id="FNB-ka-pYO"/>
-                                        <constraint firstItem="73T-rw-CaV" firstAttribute="leading" secondItem="eum-qt-4Zt" secondAttribute="leading" id="Ft0-4q-FXj"/>
-                                        <constraint firstItem="eum-qt-4Zt" firstAttribute="leading" secondItem="uqv-CG-fig" secondAttribute="trailing" constant="27" id="HLL-ly-gOk"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eum-qt-4Zt" secondAttribute="trailing" constant="50" id="Hf9-cC-I1R"/>
-                                        <constraint firstItem="uqv-CG-fig" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="7" id="HrS-8Y-0lU"/>
-                                        <constraint firstItem="cNQ-Am-ppm" firstAttribute="leading" secondItem="Wkf-xh-xWa" secondAttribute="leadingMargin" constant="25" id="L6f-fy-wZz"/>
-                                        <constraint firstItem="uqv-CG-fig" firstAttribute="trailing" secondItem="Wbm-uF-FO3" secondAttribute="trailing" id="gAx-k9-eVg"/>
-                                        <constraint firstItem="73T-rw-CaV" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="23" id="hT0-ai-wF2"/>
-                                        <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wkf-xh-xWa" secondAttribute="leadingMargin" constant="25" id="mEL-yI-ZJk"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="cNQ-Am-ppm" secondAttribute="bottom" constant="0.5" id="nCd-zO-0BQ"/>
-                                        <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wbm-uF-FO3" secondAttribute="leading" id="o66-G9-D88"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="cNQ-Am-ppm" secondAttribute="trailing" constant="50" id="rU9-di-XiJ"/>
-                                        <constraint firstItem="73T-rw-CaV" firstAttribute="trailing" secondItem="eum-qt-4Zt" secondAttribute="trailing" id="tMG-Yo-nvz"/>
-                                        <constraint firstItem="eum-qt-4Zt" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="24" id="uVs-jj-1be"/>
+                                        <constraint firstItem="uqv-CG-fig" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="7" id="I31-zy-TaW"/>
+                                        <constraint firstItem="uqv-CG-fig" firstAttribute="trailing" secondItem="Wbm-uF-FO3" secondAttribute="trailing" id="Rqf-19-yPx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="73T-rw-CaV" secondAttribute="trailing" constant="50" id="Sp7-3z-99P"/>
+                                        <constraint firstItem="cNQ-Am-ppm" firstAttribute="top" secondItem="73T-rw-CaV" secondAttribute="bottom" constant="29" id="V8g-E2-VTv"/>
+                                        <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wkf-xh-xWa" secondAttribute="leadingMargin" constant="25" id="YAA-Ue-QiW"/>
+                                        <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wbm-uF-FO3" secondAttribute="leading" id="Yhn-US-cre"/>
+                                        <constraint firstItem="cNQ-Am-ppm" firstAttribute="trailing" secondItem="73T-rw-CaV" secondAttribute="trailing" id="ltU-7z-URh"/>
+                                        <constraint firstItem="Wbm-uF-FO3" firstAttribute="top" secondItem="uqv-CG-fig" secondAttribute="bottom" constant="8" symbolic="YES" id="s55-6m-AvA"/>
+                                        <constraint firstItem="73T-rw-CaV" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="23" id="tVD-he-UFL"/>
+                                        <constraint firstItem="Wbm-uF-FO3" firstAttribute="leading" secondItem="cNQ-Am-ppm" secondAttribute="leading" id="yNZ-yB-OqJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="button" destination="eum-qt-4Zt" id="ulb-lI-8mW"/>
-                                    <outlet property="deleteBtn" destination="eum-qt-4Zt" id="ufn-PR-Ufh"/>
+                                    <outlet property="downloadBtn" destination="73T-rw-CaV" id="MNL-2M-NXY"/>
                                     <outlet property="pesnya" destination="uqv-CG-fig" id="9sy-ei-Vek"/>
                                     <outlet property="pevets" destination="Wbm-uF-FO3" id="0L4-g6-KVb"/>
                                     <outlet property="progressBar" destination="cNQ-Am-ppm" id="UFQ-m4-15U"/>
@@ -107,7 +88,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGn-wn-fSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="-24"/>
+            <point key="canvasLocation" x="992.79999999999995" y="-24.7376311844078"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ub6-EV-Vec">

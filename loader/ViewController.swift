@@ -29,12 +29,13 @@ class ViewController: UITableViewController{
     }
     
     var urls: [URL] = []
-    var queue: [URL?] = []
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         Alamofire.request("https://vibze.github.io/downloadr-task/tracks.json").responseJSON { (response) -> Void in
            
@@ -54,9 +55,9 @@ class ViewController: UITableViewController{
             }
             
         }
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(checkQueue(notification:)), name: DownloadManager.Notifications.downloadCompleted, object: nil)
-        
+////        
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteBtn(notification:)), name: DownloadManager.Notifications.downloadCompleted, object: nil)
+//
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -76,24 +77,31 @@ class ViewController: UITableViewController{
     
     
     @IBAction func buttonPressed(_ sender: AnyObject) {
-        if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
-            self.queue.append(urls[indexPath.row])
-            
-            
-            //DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
+        (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
+        if (sender as! UIButton).isSelected {
+            if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
+                DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
+            }
+        } else {
+            //            (sender as! UIButton).setTitle("Удалить", for: UIControlState.normal)
+            if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
+                let name = "\(titles[indexPath.row]).mp3"
+                let name2 = name.replacingOccurrences(of: " ", with: "")
+                let filePathURL = URL(string:"file:///Users/Azamat/Desktop/songs/\(name2)")
+                do {
+                    try FileManager.default.removeItem(at: filePathURL!)
+                } catch {
+                    print("Could not delete file: \(error)")
+                }
+            }
         }
         
     }
     
     
-//    func checkQueue(notification: Notification){
-//        guard let url = DownloadManager.shared.queue[0], let title = DownloadManager.shared.titles[0] else{return}
-//        DownloadManager.shared.download(url: url, title: title)
-//        
-//        DownloadManager.shared.queue.remove(at: 0)
-//        DownloadManager.shared.titles.remove(at: 0)
-//        
-//    }
+    func deleteBtn(notification: Notification){
+        guard let url = notification.userInfo?["url"] as? URL, let progress = notification.userInfo?["progress"] as? Float, progress == 1.0 else { return }
+    }
     
 
     override func didReceiveMemoryWarning() {

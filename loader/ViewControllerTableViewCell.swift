@@ -17,7 +17,11 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressBar: UIProgressView!
     
+    @IBOutlet weak var downloadBtn: UIButton!
     
+    
+    
+    static var shared = ViewControllerTableViewCell()
     
     
     var url: URL?
