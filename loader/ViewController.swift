@@ -14,6 +14,8 @@ import SwiftyJSON
 
 class ViewController: UITableViewController{
     
+    
+    
     var titles:[String] = [] {
         didSet {
             tableView.reloadData()
@@ -27,6 +29,8 @@ class ViewController: UITableViewController{
     }
     
     var urls: [URL] = []
+    var queue: [URL?] = []
+    
     
     
     override func viewDidLoad() {
@@ -50,6 +54,8 @@ class ViewController: UITableViewController{
             }
             
         }
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(checkQueue(notification:)), name: DownloadManager.Notifications.downloadCompleted, object: nil)
         
     }
     
@@ -71,10 +77,24 @@ class ViewController: UITableViewController{
     
     @IBAction func buttonPressed(_ sender: AnyObject) {
         if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
-            DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
+            self.queue.append(urls[indexPath.row])
+            
+            
+            //DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
         }
         
     }
+    
+    
+//    func checkQueue(notification: Notification){
+//        guard let url = DownloadManager.shared.queue[0], let title = DownloadManager.shared.titles[0] else{return}
+//        DownloadManager.shared.download(url: url, title: title)
+//        
+//        DownloadManager.shared.queue.remove(at: 0)
+//        DownloadManager.shared.titles.remove(at: 0)
+//        
+//    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

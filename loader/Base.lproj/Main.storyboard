@@ -46,7 +46,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="69" id="9Ib-IU-lWn"/>
                                             </constraints>
-                                            <state key="normal" title="Скачать">
+                                            <state key="normal" title="Удалить">
                                                 <color key="titleColor" red="1" green="0.15005792579999999" blue="0.1681275455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -59,24 +59,39 @@
                                                 <constraint firstAttribute="width" secondItem="cNQ-Am-ppm" secondAttribute="height" multiplier="142:1" id="Zqz-Ca-7S6"/>
                                             </constraints>
                                         </progressView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73T-rw-CaV">
+                                            <rect key="frame" x="248" y="31" width="69" height="43"/>
+                                            <state key="normal" title="Скачать">
+                                                <color key="titleColor" red="1" green="0.15005792579999999" blue="0.1681275455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="0Xu-bh-bRS" eventType="touchUpInside" id="car-0F-Zvr"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Wbm-uF-FO3" firstAttribute="top" secondItem="uqv-CG-fig" secondAttribute="bottom" constant="8" symbolic="YES" id="6Tm-S6-Ti2"/>
+                                        <constraint firstItem="cNQ-Am-ppm" firstAttribute="top" secondItem="73T-rw-CaV" secondAttribute="bottom" constant="29" id="6XO-Cr-mTU"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="eum-qt-4Zt" secondAttribute="bottom" constant="30.5" id="E8G-5w-2S5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Wbm-uF-FO3" secondAttribute="bottom" constant="16.5" id="FNB-ka-pYO"/>
+                                        <constraint firstItem="73T-rw-CaV" firstAttribute="leading" secondItem="eum-qt-4Zt" secondAttribute="leading" id="Ft0-4q-FXj"/>
                                         <constraint firstItem="eum-qt-4Zt" firstAttribute="leading" secondItem="uqv-CG-fig" secondAttribute="trailing" constant="27" id="HLL-ly-gOk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="eum-qt-4Zt" secondAttribute="trailing" constant="50" id="Hf9-cC-I1R"/>
                                         <constraint firstItem="uqv-CG-fig" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="7" id="HrS-8Y-0lU"/>
                                         <constraint firstItem="cNQ-Am-ppm" firstAttribute="leading" secondItem="Wkf-xh-xWa" secondAttribute="leadingMargin" constant="25" id="L6f-fy-wZz"/>
                                         <constraint firstItem="uqv-CG-fig" firstAttribute="trailing" secondItem="Wbm-uF-FO3" secondAttribute="trailing" id="gAx-k9-eVg"/>
+                                        <constraint firstItem="73T-rw-CaV" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="23" id="hT0-ai-wF2"/>
                                         <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wkf-xh-xWa" secondAttribute="leadingMargin" constant="25" id="mEL-yI-ZJk"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="cNQ-Am-ppm" secondAttribute="bottom" constant="0.5" id="nCd-zO-0BQ"/>
                                         <constraint firstItem="uqv-CG-fig" firstAttribute="leading" secondItem="Wbm-uF-FO3" secondAttribute="leading" id="o66-G9-D88"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="cNQ-Am-ppm" secondAttribute="trailing" constant="50" id="rU9-di-XiJ"/>
+                                        <constraint firstItem="73T-rw-CaV" firstAttribute="trailing" secondItem="eum-qt-4Zt" secondAttribute="trailing" id="tMG-Yo-nvz"/>
                                         <constraint firstItem="eum-qt-4Zt" firstAttribute="top" secondItem="Wkf-xh-xWa" secondAttribute="topMargin" constant="24" id="uVs-jj-1be"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="button" destination="eum-qt-4Zt" id="ulb-lI-8mW"/>
+                                    <outlet property="deleteBtn" destination="eum-qt-4Zt" id="ufn-PR-Ufh"/>
                                     <outlet property="pesnya" destination="uqv-CG-fig" id="9sy-ei-Vek"/>
                                     <outlet property="pevets" destination="Wbm-uF-FO3" id="0L4-g6-KVb"/>
                                     <outlet property="progressBar" destination="cNQ-Am-ppm" id="UFQ-m4-15U"/>
