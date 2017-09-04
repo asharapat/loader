@@ -29,8 +29,7 @@ class ViewControllerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        progressBar.progress = 0
-        progressBar.isHidden = true
+        self.progressBar.progress = 0
         NotificationCenter.default.addObserver(self, selector: #selector(onDownloadProgress(notification:)), name: DownloadManager.Notifications.downloadProgress, object: nil)
     }
     
@@ -39,11 +38,11 @@ class ViewControllerTableViewCell: UITableViewCell {
 //        print(progress)
         DispatchQueue.main.async {
             self.progressBar.isHidden = false
+            self.downloadBtn.isSelected = true
             self.progressBar.setProgress(progress, animated: true)
         }
         
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

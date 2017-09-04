@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class ViewController: UITableViewController{
     
-    
+    var set = NSMutableSet()
     
     var titles:[String] = [] {
         didSet {
@@ -28,14 +28,15 @@ class ViewController: UITableViewController{
         }
     }
     
+    
+    
     var urls: [URL] = []
     
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.allowsMultipleSelection = true
         // Do any additional setup after loading the view, typically from a nib.
         Alamofire.request("https://vibze.github.io/downloadr-task/tracks.json").responseJSON { (response) -> Void in
            
@@ -55,10 +56,10 @@ class ViewController: UITableViewController{
             }
             
         }
-////        
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteBtn(notification:)), name: DownloadManager.Notifications.downloadCompleted, object: nil)
+////
 //
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -71,6 +72,16 @@ class ViewController: UITableViewController{
         cell.pesnya.text = titles[indexPath.row]
         cell.pevets.text = artists[indexPath.row]
         cell.url = urls[indexPath.row]
+        if(set.contains(titles[indexPath.row])){
+            cell.progressBar.isHidden = false
+            cell.downloadBtn.isSelected = true
+        }
+        else{
+            cell.progressBar.progress = 0
+            cell.progressBar.isHidden = true
+            cell.downloadBtn.isSelected = false
+        }
+        
         return (cell)
     }
     
@@ -78,9 +89,10 @@ class ViewController: UITableViewController{
     
     @IBAction func buttonPressed(_ sender: AnyObject) {
         (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
-        if (sender as! UIButton).isSelected {
+         if (sender as! UIButton).isSelected {
             if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
                 DownloadManager.shared.download(url: urls[indexPath.row], title: titles[indexPath.row])
+                set.add(titles[indexPath.row])
             }
         } else {
             //            (sender as! UIButton).setTitle("Удалить", for: UIControlState.normal)
@@ -93,15 +105,13 @@ class ViewController: UITableViewController{
                 } catch {
                     print("Could not delete file: \(error)")
                 }
+                set.remove(titles[indexPath.row])
             }
-        }
-        
+            }
+    
     }
     
-    
-    func deleteBtn(notification: Notification){
-        guard let url = notification.userInfo?["url"] as? URL, let progress = notification.userInfo?["progress"] as? Float, progress == 1.0 else { return }
-    }
+
     
 
     override func didReceiveMemoryWarning() {
