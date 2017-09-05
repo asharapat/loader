@@ -96,18 +96,18 @@ class ViewController: UITableViewController{
             }
         } else {
             //            (sender as! UIButton).setTitle("Удалить", for: UIControlState.normal)
-            if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
-                let name = "\(titles[indexPath.row]).mp3"
-                let name2 = name.replacingOccurrences(of: " ", with: "")
-                let filePathURL = URL(string:"file:///Users/Azamat/Desktop/songs/\(name2)")
-                do {
-                    try FileManager.default.removeItem(at: filePathURL!)
-                } catch {
-                    print("Could not delete file: \(error)")
+                if let indexPath = tableView.indexPath(for: sender.superview!?.superview as! UITableViewCell) {
+                    let name = "\(titles[indexPath.row]).mp3"
+                    let name2 = name.replacingOccurrences(of: " ", with: "")
+                    let filePathURL = URL(string:"file:///Users/Azamat/Desktop/songs/\(name2)")
+                    do {
+                        try FileManager.default.removeItem(at: filePathURL!)
+                    } catch {
+                        print("Could not delete file: \(error)")
+                      }
+                    set.remove(titles[indexPath.row])
                 }
-                set.remove(titles[indexPath.row])
-            }
-            }
+              }
     
     }
     
