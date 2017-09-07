@@ -28,7 +28,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqv-CG-fig">
                                             <rect key="frame" x="33" y="15" width="34" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-uF-FO3">
@@ -54,7 +54,7 @@
                                             <state key="selected" title="Удалить"/>
                                             <state key="highlighted" title="Удалить"/>
                                             <connections>
-                                                <action selector="buttonPressed:" destination="0Xu-bh-bRS" eventType="touchUpInside" id="car-0F-Zvr"/>
+                                                <action selector="downloadButtonTouchedWithSender:" destination="HgB-oB-zDV" eventType="touchUpInside" id="tht-iN-32t"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -73,7 +73,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="downloadBtn" destination="73T-rw-CaV" id="MNL-2M-NXY"/>
+                                    <outlet property="downloadButton" destination="73T-rw-CaV" id="jOy-QJ-hR8"/>
                                     <outlet property="pesnya" destination="uqv-CG-fig" id="9sy-ei-Vek"/>
                                     <outlet property="pevets" destination="Wbm-uF-FO3" id="0L4-g6-KVb"/>
                                     <outlet property="progressBar" destination="cNQ-Am-ppm" id="UFQ-m4-15U"/>

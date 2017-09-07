@@ -10,16 +10,22 @@ import UIKit
 import Alamofire
 
 
+protocol DownloadManagerDelegate: class {
+    func downloadProgress(_ progress: Float)
+}
+
+
 
 class DownloadManager {
     
     static var shared = DownloadManager()
     
-    struct Notifications {
-        static let downloadProgress = Notification.Name("downloadProgress")
-        static let downloadCompleted = Notification.Name("downloadCompleted")
-    }
+//    struct Notifications {
+//        static let downloadProgress = Notification.Name("downloadProgress")
+//        static let downloadCompleted = Notification.Name("downloadCompleted")
+//    }
     
+    var delegate: DownloadManagerDelegate?
     
     var queue = [(URL, String)]()
     var isLoading = false
@@ -39,7 +45,6 @@ class DownloadManager {
         self.isLoading = true
         
         Alamofire.download(url, method: .get, to: { (url, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
-            print(self.queue.count)
             self.isLoading = false
             //print("\(title) is completed")
             if let first = self.queue.first {
@@ -50,8 +55,13 @@ class DownloadManager {
             return (filePathURl!, [.createIntermediateDirectories])
         })
             .downloadProgress{ progress in
+                print(self.queue.count)
+
+                self.delegate?.downloadProgress(Float(progress.fractionCompleted))
                 //print("Download Progress: \(progress.fractionCompleted)")
-                NotificationCenter.default.post(name: Notifications.downloadProgress, object: self, userInfo: ["progress": Float(progress.fractionCompleted), "url": url])
+                
+                //print("Download Progress: \(progress.fractionCompleted)")
+//                NotificationCenter.default.post(name: Notifications.downloadProgress, object: self, userInfo: ["progress": Float(progress.fractionCompleted), "url": url])
         }
     }
 }
